@@ -36,13 +36,11 @@ class AppState extends ChangeNotifier {
     }
   }
 
-  // --- States ---
   final Set<String> _bookmarkedVillageIds = {};
   String _searchQuery = '';
   String _selectedCategory = 'Semua Desa';
 
-  // --- Quiz States ---
-  String? _activeQuizId; // null = global quiz
+  String? _activeQuizId;
   int _currentQuestionIndex = 0;
   List<int?> _selectedAnswers = [];
   bool _isAnswered = false;
@@ -59,7 +57,6 @@ class AppState extends ChangeNotifier {
     _shuffledIndices = [];
   }
 
-  // --- Getters ---
   List<Village> get villages => isEnglish ? villagesEn : villagesId;
   Set<String> get bookmarkedVillageIds => _bookmarkedVillageIds;
   String get searchQuery => _searchQuery;
@@ -82,7 +79,6 @@ class AppState extends ChangeNotifier {
     }).toList();
   }
 
-  // --- Bookmarks & Firebase Logic ---
   bool isBookmarked(String id) => _bookmarkedVillageIds.contains(id);
 
   Future<void> toggleBookmark(String id) async {
@@ -93,7 +89,6 @@ class AppState extends ChangeNotifier {
     }
     notifyListeners();
 
-    // Sync to Firestore
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       try {
@@ -144,7 +139,6 @@ class AppState extends ChangeNotifier {
     await FirebaseAuth.instance.signOut();
   }
 
-  // --- Search & Category Logic ---
   void setSearchQuery(String query) {
     _searchQuery = query;
     notifyListeners();
@@ -155,7 +149,6 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // --- Quiz Logic Getters ---
   String? get activeQuizId => _activeQuizId;
   
   List<QuizQuestion> get quizQuestions {
@@ -205,11 +198,9 @@ class AppState extends ChangeNotifier {
     return ((correctCount / quizQuestions.length) * 100).round();
   }
 
-  // --- Quiz Actions ---
   void startQuiz([String? villageId]) {
     _activeQuizId = villageId;
     
-    // Setup shuffling
     List<QuizQuestion> sourceList;
     if (_activeQuizId == null || _activeQuizId == 'global') {
       sourceList = isEnglish ? globalQuizEn : globalQuizId;

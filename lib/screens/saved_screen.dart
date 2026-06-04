@@ -22,7 +22,6 @@ class SavedScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -73,7 +72,6 @@ class SavedScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Subheading
               Text(
                 appState.isEnglish ? 'Saved Explorations' : 'Simpanan Penjelajahan',
                 style: const TextStyle(
@@ -95,7 +93,6 @@ class SavedScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Main content: Grid of Saved Villages or Empty State
               Expanded(
                 child: savedVillages.isEmpty
                     ? _buildEmptyState(context, appState.isEnglish)
@@ -193,7 +190,6 @@ class SavedScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Stack
             Expanded(
               child: Stack(
                 children: [
@@ -206,7 +202,6 @@ class SavedScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  // Bookmark toggle
                   Positioned(
                     top: 10,
                     right: 10,
@@ -233,7 +228,6 @@ class SavedScreen extends StatelessWidget {
               ),
             ),
 
-            // Metadata text
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(

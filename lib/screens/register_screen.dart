@@ -34,7 +34,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      // Navigation is handled by AuthGate, pop back
       if (mounted) {
         Navigator.pop(context);
       }

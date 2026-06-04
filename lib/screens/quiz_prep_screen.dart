@@ -33,7 +33,6 @@ class QuizPrepScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Icon or Image representation
               Container(
                 width: 120,
                 height: 120,
@@ -51,7 +50,6 @@ class QuizPrepScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               
-              // Title
               Text(
                 title,
                 textAlign: TextAlign.center,
@@ -62,7 +60,6 @@ class QuizPrepScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               
-              // Description
               Text(
                 description,
                 textAlign: TextAlign.center,
@@ -74,12 +71,10 @@ class QuizPrepScreen extends StatelessWidget {
               ),
               const SizedBox(height: 48),
 
-              // Start Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Start the quiz (it will shuffle questions) and navigate to full screen
                     appState.startQuiz(appState.activeQuizId ?? 'global');
                     Navigator.push(
                       context,

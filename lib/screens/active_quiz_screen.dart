@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../theme/app_theme.dart';
 import '../state/app_state.dart';
-import '../state/app_language.dart';
 import 'quiz_result_screen.dart';
 
 class ActiveQuizScreen extends StatelessWidget {
@@ -32,11 +31,9 @@ class ActiveQuizScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Top Row (Custom App Bar)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Cancel Button
                       TextButton.icon(
                         onPressed: () {
                           Navigator.of(context).pop();
@@ -81,7 +78,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Culture Quiz Subtitle
                 Text(
                   appState.activeQuizId != null && appState.activeQuizId != 'global'
                       ? (appState.isEnglish 
@@ -98,7 +94,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 6),
 
-                // Progress Indicator Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -127,7 +122,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                // Horizontal Progress Bar
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: LinearProgressIndicator(
@@ -140,7 +134,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Question Box Card
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -157,7 +150,6 @@ class ActiveQuizScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Photo illustrating the question
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
                         child: Image.asset(
@@ -168,7 +160,6 @@ class ActiveQuizScreen extends StatelessWidget {
                         ),
                       ),
 
-                      // Question Text
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Text(
@@ -187,7 +178,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Multiple Choice Option list (A, B, C, D)
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -199,11 +189,9 @@ class ActiveQuizScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Next / Submit Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Muted review explanation if answered
                     if (isAnswered)
                       Expanded(
                         child: Padding(
@@ -223,7 +211,7 @@ class ActiveQuizScreen extends StatelessWidget {
                           ? () {
                               appState.nextQuestion();
                             }
-                          : null, // Disabled until answered
+                          : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: isAnswered ? AppTheme.primaryGreen : AppTheme.primaryGreen.withOpacity(0.4),
                         minimumSize: const Size(120, 56),
@@ -270,7 +258,6 @@ class ActiveQuizScreen extends StatelessWidget {
     final letters = ['A', 'B', 'C', 'D'];
     final letter = letters[optionIndex];
 
-    // Colors mapping based on interaction and correct/incorrect status
     Color cardBgColor = AppTheme.cardWhite;
     Color borderColor = AppTheme.secondaryBeige;
     Color letterBgColor = Colors.transparent;
@@ -289,14 +276,13 @@ class ActiveQuizScreen extends StatelessWidget {
           letterTextColor = Colors.white;
           suffixIcon = const Icon(Icons.check_circle_rounded, color: AppTheme.successGreen, size: 22);
         } else {
-          cardBgColor = const Color(0xFFFCE8E6); // Light red
+          cardBgColor = const Color(0xFFFCE8E6);
           borderColor = AppTheme.errorRed;
           letterBgColor = AppTheme.errorRed;
           letterTextColor = Colors.white;
           suffixIcon = const Icon(Icons.cancel_rounded, color: AppTheme.errorRed, size: 22);
         }
       } else if (isCorrect) {
-        // Highlight correct option if user selected incorrectly
         cardBgColor = AppTheme.highlightGreen;
         borderColor = AppTheme.successGreen.withOpacity(0.5);
         letterBgColor = AppTheme.successGreen.withOpacity(0.2);
@@ -320,7 +306,6 @@ class ActiveQuizScreen extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Styled Circular Letter Index
             Container(
               width: 32,
               height: 32,
@@ -346,7 +331,6 @@ class ActiveQuizScreen extends StatelessWidget {
 
             const SizedBox(width: 16),
 
-            // Option Content Text
             Expanded(
               child: Text(
                 optionText,
@@ -358,7 +342,6 @@ class ActiveQuizScreen extends StatelessWidget {
               ),
             ),
 
-            // Suffix Correct/Incorrect Icon if answered
             if (suffixIcon != null) suffixIcon,
           ],
         ),

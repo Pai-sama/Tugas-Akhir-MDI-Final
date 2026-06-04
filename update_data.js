@@ -7,8 +7,6 @@ const enFile = 'd:/Hidden gem village/lib/data/app_data_en.dart';
 function updateFile(filePath, replacements) {
     let content = fs.readFileSync(filePath, 'utf8');
     
-    // We will do string replacement for the villages. Since we know they were appended exactly, 
-    // we can use a regex to match from Village( id: '13' ... to the end before `];`.
     const regex = /    Village\(\s*id: '13'[\s\S]*?isFeatured: false,\s*\),\s*\];/g;
     
     content = content.replace(regex, replacements + '\n];');

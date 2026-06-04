@@ -89,7 +89,7 @@ class _MapScreenState extends State<MapScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context); // Close popup
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -127,7 +127,6 @@ class _MapScreenState extends State<MapScreen> {
     final appState = Provider.of<AppState>(context, listen: false);
     final villages = appState.villages;
 
-    // Default center point: roughly the center of Indonesia
     final initialCenter = const LatLng(-0.7893, 113.9213);
     
     return Scaffold(
@@ -157,7 +156,7 @@ class _MapScreenState extends State<MapScreen> {
         mapController: _mapController,
         options: MapOptions(
           initialCenter: initialCenter,
-          initialZoom: 4.5, // See whole Indonesia
+          initialZoom: 4.5,
           minZoom: 4.0,
           maxZoom: 18.0,
         ),

@@ -15,7 +15,6 @@ class QuizResultScreen extends StatelessWidget {
     final correct = appState.correctCount;
     final incorrect = appState.incorrectCount;
 
-    // Custom text based on score
     String resultTitle = appState.isEnglish ? 'Great!' : 'Hebat!';
     String resultSubtitle = appState.isEnglish ? 'You are getting to know Nusantara better.' : 'Kamu semakin mengenal Nusantara.';
     if (score == 100) {
@@ -35,7 +34,6 @@ class QuizResultScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Top Custom App Bar
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -83,12 +81,10 @@ class QuizResultScreen extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
-                // Circular Progress Score Gauge (Image 3)
                 Stack(
                   alignment: Alignment.center,
                   clipBehavior: Clip.none,
                   children: [
-                    // Outer Circular Track
                     SizedBox(
                       width: 170,
                       height: 170,
@@ -101,7 +97,6 @@ class QuizResultScreen extends StatelessWidget {
                       ),
                     ),
 
-                    // Inside texts
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -125,7 +120,6 @@ class QuizResultScreen extends StatelessWidget {
                       ],
                     ),
 
-                    // Gold Star Badge on Top Right
                     Positioned(
                       top: 4,
                       right: 4,
@@ -154,7 +148,6 @@ class QuizResultScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                // Congratulations text
                 Text(
                   resultTitle,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -175,10 +168,8 @@ class QuizResultScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                // Benar & Salah Side-by-Side Cards
                 Row(
                   children: [
-                    // Correct Answers Card
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -233,7 +224,6 @@ class QuizResultScreen extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    // Incorrect Answers Card
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -292,8 +282,6 @@ class QuizResultScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                // Action Buttons
-                // Primary: Kembali ke Beranda
                 ElevatedButton(
                   onPressed: () {
                     appState.resetQuiz();
@@ -325,7 +313,6 @@ class QuizResultScreen extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                // Secondary: Coba Lagi
                 OutlinedButton(
                   onPressed: () {
                     appState.startQuiz(appState.activeQuizId);

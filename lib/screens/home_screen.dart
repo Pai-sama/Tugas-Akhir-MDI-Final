@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Top Custom App Bar
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -73,7 +72,6 @@ class HomeScreen extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // Search Bar Custom Container
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   height: 56,
@@ -109,7 +107,6 @@ class HomeScreen extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // Category Chips Horizontal Scroll
                 SizedBox(
                   height: 42,
                   child: ListView(
@@ -123,7 +120,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
 
-                // Section Header
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -140,7 +136,6 @@ class HomeScreen extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // Grid of Village Cards
                 if (villages.isNotEmpty) ...[
                   GridView.builder(
                     shrinkWrap: true,
@@ -179,7 +174,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
 
-                // Dynamic Banner Card (Mulai Kuis)
                 _buildQuizBannerCard(context, appState),
 
                 const SizedBox(height: 16),
@@ -263,7 +257,6 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Stack
             Expanded(
               child: Stack(
                 children: [
@@ -279,7 +272,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Bookmark
                   Positioned(
                     top: 10,
                     right: 10,
@@ -306,7 +298,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Text Metadata
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -359,7 +350,6 @@ class HomeScreen extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Background subtle vector pattern effect
           Positioned(
             right: -20,
             bottom: -20,
@@ -386,7 +376,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Main content
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: Row(
@@ -417,10 +406,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 18),
-                      // Mulai Kuis Button
                       ElevatedButton(
                         onPressed: () {
-                          // Switch active bottom tab to Quiz page (tab index 1)
                           final navWrapper = context.findAncestorStateOfType<MainNavigationWrapperState>();
                           if (navWrapper != null) {
                             navWrapper.setTab(1);
@@ -449,7 +436,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                // Custom illustration of Question Box (matches mock)
                 Expanded(
                   flex: 2,
                   child: Column(

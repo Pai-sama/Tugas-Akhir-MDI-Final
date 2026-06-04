@@ -27,7 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      // Navigation is handled by AuthGate
     } on FirebaseAuthException catch (e) {
       if (mounted) {
         setState(() {
@@ -54,7 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 40),
-              // App Logo
               Center(
                 child: Container(
                   width: 100,

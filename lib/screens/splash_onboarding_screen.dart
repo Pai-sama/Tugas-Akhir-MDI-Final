@@ -19,8 +19,8 @@ class SplashOnboardingScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFF095E3C), // Solid elegant emerald green
-                  Color(0xFF053E26), // Darker depth green
+                  Color(0xFF095E3C),
+                  Color(0xFF053E26),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -34,7 +34,6 @@ class SplashOnboardingScreen extends StatelessWidget {
                   children: [
                     const Spacer(flex: 2),
 
-                    // Central Rounded Icon Card
                     Container(
                       width: 150,
                       height: 150,
@@ -63,7 +62,6 @@ class SplashOnboardingScreen extends StatelessWidget {
 
                     const SizedBox(height: 40),
 
-                    // Main Title & Subtitle
                     Text(
                       'Hidden Gem Village',
                       style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -91,7 +89,6 @@ class SplashOnboardingScreen extends StatelessWidget {
 
                     const Spacer(flex: 3),
 
-                    // Action Button (Begin Journey)
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -124,7 +121,7 @@ class SplashOnboardingScreen extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFAF6F0), // Off-white cream
+                        backgroundColor: const Color(0xFFFAF6F0),
                         foregroundColor: AppTheme.primaryGreen,
                         minimumSize: const Size.fromHeight(58),
                         shape: RoundedRectangleBorder(
@@ -149,7 +146,6 @@ class SplashOnboardingScreen extends StatelessWidget {
 
                     const SizedBox(height: 24),
 
-                    // Mindful Exploration Divider
                     Row(
                       children: [
                         const Expanded(child: Divider(color: Colors.white24, thickness: 1)),
@@ -171,7 +167,6 @@ class SplashOnboardingScreen extends StatelessWidget {
 
                     const Spacer(flex: 2),
 
-                    // Footer section (Language Selector)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

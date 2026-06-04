@@ -23,11 +23,9 @@ class DetailScreen extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hero Image and Sticky Overlays
             Stack(
               clipBehavior: Clip.none,
               children: [
-                // Village Image
                 Hero(
                   tag: 'village-img-${village.id}',
                   child: Image.asset(
@@ -38,7 +36,6 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
 
-                // Dark elegant top gradient
                 Positioned(
                   top: 0,
                   left: 0,
@@ -58,7 +55,6 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
 
-                // Bottom gradient for tags readability
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -81,7 +77,6 @@ class DetailScreen extends StatelessWidget {
 
 
 
-                // Floating Tags (bottom overlay on image)
                 Positioned(
                   bottom: 70,
                   left: 20,
@@ -111,7 +106,6 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
 
-            // Main Content Body (overlapped starting here)
             Transform.translate(
               offset: const Offset(0, -50),
               child: Padding(
@@ -119,7 +113,6 @@ class DetailScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Village Title and Location Header
                     Text(
                       village.name,
                       style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -159,7 +152,6 @@ class DetailScreen extends StatelessWidget {
 
 
 
-                    // Tentang Desa Card
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
@@ -205,7 +197,6 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 28),
 
-                    // Sejarah Singkat Timeline Section
                     Row(
                       children: [
                         const Icon(Icons.history_edu_rounded, color: AppTheme.primaryGreen, size: 24),
@@ -223,7 +214,6 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 16),
 
-                    // Vertical Timeline implementation
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -286,7 +276,6 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 12),
 
-                    // Galeri Foto Section
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -320,7 +309,6 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 8),
 
-                    // Horizontal Photo List
                     SizedBox(
                       height: 150,
                       child: ListView.builder(
@@ -345,7 +333,6 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 28),
 
-                    // Kebudayaan Lokal Section
                     Row(
                       children: [
                         const Icon(Icons.gavel_rounded, color: AppTheme.primaryGreen, size: 24),
@@ -363,14 +350,12 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 16),
 
-                    // Custom styled culture list cards (Awig-Awig, Arsitektur SAMA)
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: village.cultureList.length,
                       itemBuilder: (context, index) {
                         final culture = village.cultureList[index];
-                        // Select icons dynamically
                         IconData icon = Icons.gavel_rounded;
                         if (culture.title.toLowerCase().contains('arsitektur')) {
                           icon = Icons.home_work_rounded;
@@ -433,10 +418,8 @@ class DetailScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // Sticky Mulai Kuis Village Button
                     ElevatedButton(
                       onPressed: () {
-                        // Reset quiz stats and start specific village quiz
                         appState.startQuiz(village.id);
                         Navigator.pushAndRemoveUntil(
                           context,
@@ -470,7 +453,6 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Float Sticky Back Button
           Positioned(
             top: MediaQuery.of(context).padding.top > 0 
                 ? MediaQuery.of(context).padding.top + 10 

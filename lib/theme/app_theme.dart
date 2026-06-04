@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // --- Color Palette ---
-  static const Color primaryGreen = Color(0xFF076643); // Emerald Green
-  static const Color accentAmber = Color(0xFFFFAE19);  // Warm Amber
-  static const Color bgCream = Color(0xFFFAF6F0);      // Earth Tone Warm Cream
+  static const Color primaryGreen = Color(0xFF076643);
+  static const Color accentAmber = Color(0xFFFFAE19);
+  static const Color bgCream = Color(0xFFFAF6F0);
   static const Color cardWhite = Color(0xFFFFFFFF);
   static const Color textDark = Color(0xFF192A20);
   static const Color textMuted = Color(0xFF67746D);
@@ -24,7 +23,7 @@ class AppTheme {
         secondary: accentAmber,
         surface: cardWhite,
       ),
-      fontFamily: 'Inter', // Will fall back to default sans-serif if not found
+      fontFamily: 'Inter',
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 28,

@@ -21,7 +21,6 @@ void main() async {
     prefixMap[prefix]!.sort();
   }
 
-  // CORRECT ID MAPPING based on actual data
   final idMapping = {
     '1': 'desa_penglipuran',
     '2': 'desa_sade',

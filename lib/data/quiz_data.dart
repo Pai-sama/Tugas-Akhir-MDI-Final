@@ -3211,4 +3211,3 @@ final List<QuizQuestion> globalQuizEn = [
       explanation: 'Argapura Village is in West Java.',
     ),
 ];
-
